@@ -1,16 +1,17 @@
 /* global Image */
 import drawTile from './drawTile'
+import { CANVAS_HEIGHT, CANVAS_WIDTH } from './consts'
 
-const mount = document.getElementById('app-mount')
+const mount = document.getElementById('game')
 const canvas = document.createElement('canvas')
 const ctx = canvas.getContext('2d')
 
 mount.appendChild(canvas)
 
-canvas.width = 100
-canvas.height = 100
+canvas.width = CANVAS_WIDTH
+canvas.height = CANVAS_HEIGHT
 
-ctx.fillRect(0, 0, 100, 100)
+ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
 
 const loaded = () => {
   const tiles = makeTransparent(img)
