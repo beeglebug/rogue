@@ -1,7 +1,6 @@
 /* global Image */
-import drawTile from './drawTile'
 import { CANVAS_HEIGHT, CANVAS_WIDTH } from './consts'
-import tileData from './tileData'
+import drawWindow from './drawWindow'
 
 const mount = document.getElementById('game')
 const canvas = document.createElement('canvas')
@@ -18,42 +17,15 @@ ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
 const loaded = () => {
   const tiles = makeTransparent(img)
 
-  let data = []
-  data.push(218)
-  data.push(196)
-  data.push(91)
-  const title = 'Test Title'
-  for (let i = 0; i < title.length; i++) {
-    data.push(title.charCodeAt(i))
-  }
-  data.push(196)
-  data.push(191)
-
-  const offset = {
-    x: 1
+  const window = {
+    title: 'Example Window',
+    x: 1,
+    y: 1,
+    width: 20,
+    height: 5
   }
 
-  data
-    .map((char, ix) => {
-      return { char, x: ix, y: 1 }
-    })
-    .forEach(item => {
-      const tile = tileData[item.char]
-      drawTile(
-        ctx,
-        tiles,
-        (item.x + offset.x) * 10,
-        item.y * 10,
-        tile.x,
-        tile.y,
-        '#463F3A',
-        '#F4F3EE'
-      )
-    })
-}
-
-function drawWindow (ctx, window) {
-
+  drawWindow(ctx, tiles, window)
 }
 
 const img = new Image()
