@@ -1,3 +1,1 @@
-### es6 skeleton
-
-quick starter for es6 / webpack / babel / eslint
+vanilla js / html5 canvas rogue experiment
